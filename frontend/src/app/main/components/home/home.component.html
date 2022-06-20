@@ -1,0 +1,16 @@
+<div class="column center-horizontal-align full-size default-margin container">
+    <div class="column title">
+        <h4>Bem-vindo</h4>
+        <h6>Para onde você quer ir?</h6>
+    </div>
+    <div class="actions no-wrap" [ngClass]="actionsDirection">
+        <button matRipple [matRippleColor]="rippleColor" class="button" (click)="onNavigate('alarme')">
+            <mat-icon svgIcon="alarm"></mat-icon>
+            <span>Alarmes</span>
+        </button>
+        <button matRipple [matRippleColor]="rippleColor" class="button" (click)="onNavigate('medicamento')">
+            <mat-icon svgIcon="vaccines"></mat-icon>
+            <span>Medicamentos</span>
+        </button>
+    </div>
+</div>

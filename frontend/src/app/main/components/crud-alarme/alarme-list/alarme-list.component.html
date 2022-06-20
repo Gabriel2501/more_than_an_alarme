@@ -1,0 +1,19 @@
+<app-header title="Alarme"></app-header>
+
+<div class="column default-margin content">
+    <ng-container *ngIf="alarmes$ | async as alarmes">
+        <button *ngFor="let alarme of alarmes; index as i" class="row button" matRipple [matRippleColor]="rippleColor"
+            (click)="onNavigate(alarme.id)">
+            <h6>{{i+1}}</h6>
+            <h6>{{'. ' + alarme.nome}}</h6>
+        </button>
+
+        <div class="column" *ngIf="!alarmes.length">
+            <h6>Oooops!</h6>
+            <span class="subtitle-1">Não há nada para mostrar aqui :( </span>
+        </div>
+    </ng-container>
+    <button mat-fab type="button" color="primary" class="custom-fab-button" (click)="onNavigate(-1)">
+        <mat-icon svgIcon="add"></mat-icon>
+    </button>
+</div>

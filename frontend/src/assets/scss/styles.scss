@@ -1,0 +1,165 @@
+@use "sass:map";
+@use "./flexbox";
+@use "./typography";
+@use "./colors" as colors;
+@use "./grid" as responsivity;
+@use "./custom-material-theme";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+body,
+.mat-bottom-sheet-container.custom-bottom-sheet-container {
+  background-color: colors.$background-color;
+}
+
+button {
+  background-color: unset;
+  border: unset;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon-button {
+  border-radius: 50%;
+}
+
+.default-margin {
+  box-sizing: border-box;
+}
+
+.action-header {
+  background-color: map-get($map: colors.$elevations, $key: 02dp);
+}
+
+@include responsivity.grid("Handset") {
+  $margin: map-get(
+    $map: responsivity.$margins,
+    $key: "handset",
+  );
+
+  .default-margin {
+    padding: 0 $margin;
+  }
+
+  .mat-bottom-sheet-container.custom-bottom-sheet-size {
+    height: 80vh;
+  }
+
+  .custom-fab-button {
+    right: calc($margin + ($margin/2));
+    bottom: $margin;
+  }
+
+  .custom-fab-button-2 {
+    right: calc($margin + ($margin/2) + 69px);
+    bottom: $margin;
+  }
+
+  .error-button {
+    padding: 16px 12px;
+    margin: 16px 0 0 0;
+  }
+
+  .error-button + .error-button {
+    margin-left: 8px;
+  }
+
+  .action-header {
+    height: 40%;
+  }
+
+  .icon-button {
+    padding: 4px 6px;
+  }
+}
+
+@include responsivity.grid("TabletPortrait") {
+  $margin: map-get(
+    $map: responsivity.$margins,
+    $key: "tabletPortrait",
+  );
+
+  .default-margin {
+    padding: 0 $margin;
+  }
+
+  .mat-bottom-sheet-container.custom-bottom-sheet-size {
+    height: 65vh;
+  }
+
+  .error-button {
+    padding: 16px 12px;
+    margin: 16px 0 0 0;
+  }
+
+  .error-button + .error-button {
+    margin-left: 8px;
+  }
+}
+
+@include responsivity.grid("TabletLandscape") {
+  $margin: map-get(
+    $map: responsivity.$margins,
+    $key: "tabletLandscape",
+  );
+
+  .default-margin {
+    padding: 0 $margin;
+  }
+
+  .error-button {
+    padding: 16px 12px;
+    margin: 16px 0 0 0;
+  }
+}
+
+@include responsivity.grid("WebPortrait") {
+  $margin: map-get(
+    $map: responsivity.$margins,
+    $key: "webPortrait",
+  );
+
+  .default-margin {
+    padding: 0 $margin;
+  }
+
+  .error-button {
+    padding: 16px 12px;
+    margin: 16px 0 0 0;
+  }
+}
+
+@include responsivity.grid("WebLandscape") {
+  $margin: map-get(
+    $map: responsivity.$margins,
+    $key: "webLandscape",
+  );
+
+  .default-margin {
+    padding: 0 $margin;
+  }
+
+  .error-button {
+    padding: 16px 12px;
+    margin: 16px 0 0 0;
+  }
+}
+
+@include responsivity.grid("Xlarge") {
+  $margin: map-get(
+    $map: responsivity.$margins,
+    $key: "xLarge",
+  );
+
+  .default-margin {
+    padding: 0 $margin;
+  }
+}

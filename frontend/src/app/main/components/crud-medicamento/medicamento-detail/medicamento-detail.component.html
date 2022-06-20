@@ -1,0 +1,22 @@
+<app-header title="Medicamento"></app-header>
+<!--  (ngSubmit)="onSubmit()" -->
+<form class="column default-margin content" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Doses disponíveis</mat-label>
+    <input matInput formControlName="dosesDisponiveis" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Vencimento</mat-label>
+    <input matInput formControlName="vencimento" autocomplete="off">
+  </mat-form-field>
+  <button mat-fab type="submit" color="primary" class="custom-fab-button button">
+    <mat-icon [svgIcon]="icon"></mat-icon>
+  </button>
+  <button mat-fab type="button" color="primary" class="custom-fab-button-2 button" (click)="delete()" *ngIf="form.get('id')?.value">
+    <mat-icon svgIcon="delete"></mat-icon>
+  </button>
+</form>

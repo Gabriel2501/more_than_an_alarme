@@ -1,0 +1,42 @@
+<app-header title="Alarme"></app-header>
+<!--  (ngSubmit)="onSubmit()" -->
+<form class="column default-margin content" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Data de início</mat-label>
+    <input matInput formControlName="dataInicio" autocomplete="off">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Usos</mat-label>
+    <input matInput formControlName="usos" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Intervalo</mat-label>
+    <input matInput formControlName="intervalo" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Medicamento</mat-label>
+    <mat-select formControlName="medicamentoId">
+      <mat-option *ngFor="let medicamento of medicamentos$ | async as medicamentos" [value]="medicamento.id">
+        {{medicamento.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Quantidade</mat-label>
+    <input matInput formControlName="quantidade" autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Unidade de medida</mat-label>
+    <input matInput formControlName="unidadeDeMedida" autocomplete="off">
+  </mat-form-field>
+  <button mat-fab type="submit" color="primary" class="custom-fab-button button">
+    <mat-icon [svgIcon]="icon"></mat-icon>
+  </button>
+  <button mat-fab type="button" color="primary" class="custom-fab-button-2 button" (click)="delete()" *ngIf="form.get('id')?.value">
+    <mat-icon svgIcon="delete"></mat-icon>
+  </button>
+</form>
